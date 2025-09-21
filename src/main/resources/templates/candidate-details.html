@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>รายละเอียดผู้สมัคร</title>
+</head>
+<body>
+    <h1>รายละเอียดผู้สมัคร</h1>
+    <p><b>รหัส:</b> <span th:text="${candidate.candidateId}"></span></p>
+    <p><b>ชื่อ:</b> <span th:text="${candidate.firstName}"></span> <span th:text="${candidate.lastName}"></span></p>
+    <p><b>อีเมล:</b> <span th:text="${candidate.email}"></span></p>
+
+    <h2>ตำแหน่งงานที่สมัคร</h2>
+    <table border="1">
+        <tr>
+            <th>รหัสงาน</th>
+            <th>ชื่อตำแหน่ง</th>
+            <th>บริษัท</th>
+            <th>วันที่สมัคร</th>
+        </tr>
+        <tr th:each="app : ${applications}">
+            <td th:text="${app.job.jobId}"></td>
+            <td th:text="${app.job.title}"></td>
+            <td th:text="${app.job.company.name}"></td>
+            <td th:text="${app.applyDate}"></td>
+        </tr>
+    </table>
+</body>
+</html>

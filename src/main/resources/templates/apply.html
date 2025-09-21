@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>สมัครงาน</title>
+</head>
+<body>
+    <h1>ยืนยันการสมัครงาน</h1>
+
+    <p><b>ผู้สมัคร:</b> <span th:text="${candidate.firstName} + ' ' + ${candidate.lastName}"></span></p>
+    <p><b>งาน:</b> <span th:text="${job.title}"></span> (บริษัท <span th:text="${job.company.name}"></span>)</p>
+    <p><b>วันที่สมัคร:</b> <span th:text="${#dates.format(T(java.time.LocalDateTime).now(), 'yyyy-MM-dd HH:mm')}"></span></p>
+
+    <form th:action="@{/jobs/confirm-apply}" method="post">
+        <input type="hidden" name="jobId" th:value="${job.jobId}"/>
+        <input type="hidden" name="candidateId" th:value="${candidate.candidateId}"/>
+        <button type="submit">ยืนยันสมัคร</button>
+    </form>
+
+    <p><a href="/jobs/open">กลับไปหน้าตำแหน่งงาน</a></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ตำแหน่งงานที่เปิดรับสมัคร</title>
+</head>
+<body>
+    <h1>ตำแหน่งงานที่เปิดรับสมัคร</h1>
+    <table border="1">
+        <tr>
+            <th>รหัสงาน</th>
+            <th>ชื่อตำแหน่ง</th>
+            <th>รายละเอียด</th>
+            <th>บริษัท</th>
+            <th>วันปิดรับสมัคร</th>
+            <th>จำนวนผู้สมัคร</th>
+            <th>สมัคร</th>
+        </tr>
+        <tr th:each="job : ${jobs}">
+            <td th:text="${job.jobId}"></td>
+            <td th:text="${job.title}"></td>
+            <td th:text="${job.description}"></td>
+            <td th:text="${job.company.name}"></td>
+            <td th:text="${job.deadline}"></td>
+            <td th:text="${job.applications.size()}"></td>
+            <td>
+                <a th:href="@{/jobs/apply(jobId=${job.jobId}, candidateId=${candidateId})}">สมัครงาน</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

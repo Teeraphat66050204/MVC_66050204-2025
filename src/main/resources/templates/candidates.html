@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>รายชื่อผู้สมัคร</title>
+</head>
+<body>
+    <h1>รายชื่อผู้สมัครทั้งหมด</h1>
+    <table border="1">
+        <tr>
+            <th>รหัสผู้สมัคร</th>
+            <th>ชื่อ</th>
+            <th>นามสกุล</th>
+            <th>อีเมล</th>
+            <th>รายละเอียด</th>
+        </tr>
+        <tr th:each="candidate : ${candidates}">
+            <td th:text="${candidate.candidateId}"></td>
+            <td th:text="${candidate.firstName}"></td>
+            <td th:text="${candidate.lastName}"></td>
+            <td th:text="${candidate.email}"></td>
+            <td>
+                <a th:href="@{/candidate/{id}(id=${candidate.candidateId})}">ดูรายละเอียด</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
