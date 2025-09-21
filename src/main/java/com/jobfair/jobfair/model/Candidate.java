@@ -23,7 +23,7 @@ public class Candidate {
     @JsonManagedReference
     private List<Application> applications;
 
-    // Getters and Setters
+   
     public String getCandidateId() { return candidateId; }
     public void setCandidateId(String candidateId) { this.candidateId = candidateId; }
 

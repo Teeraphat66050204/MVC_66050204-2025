@@ -37,7 +37,7 @@ public class Job {
     @JsonManagedReference
     private List<Application> applications;
 
-    // Getters and Setters
+   
     public String getJobId() { return jobId; }
     public void setJobId(String jobId) { this.jobId = jobId; }
 

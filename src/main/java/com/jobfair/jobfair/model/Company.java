@@ -23,7 +23,7 @@ public class Company {
     @JsonManagedReference
     private List<Job> jobs;
 
-    // Getters and Setters
+   
     public String getCompanyId() { return companyId; }
     public void setCompanyId(String companyId) { this.companyId = companyId; }
 
