@@ -25,7 +25,7 @@ public class CandidateController {
         this.applicationService = applicationService;
     }
 
-    // ✅ ผู้สมัครดูประวัติของตัวเอง
+  
     @GetMapping("/{id}")
     public String viewCandidateProfile(@PathVariable String id, Model model) {
         Candidate candidate = candidateService.getCandidateById(id);

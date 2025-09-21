@@ -30,7 +30,7 @@ public class Application {
     @JsonBackReference
     private Candidate candidate;
 
-    // Getters and Setters
+   
     public ApplicationId getId() { return id; }
     public void setId(ApplicationId id) { this.id = id; }
 

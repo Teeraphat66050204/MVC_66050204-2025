@@ -1,14 +1,16 @@
 package com.jobfair.jobfair.controller;
 
-import com.jobfair.jobfair.model.Job;
-import com.jobfair.jobfair.model.Candidate;
-import com.jobfair.jobfair.service.JobService;
-import com.jobfair.jobfair.service.CandidateService;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
+import com.jobfair.jobfair.model.Job;
+import com.jobfair.jobfair.service.CandidateService;
+import com.jobfair.jobfair.service.JobService;
 
 @Controller
 @RequestMapping("/jobs")
@@ -22,7 +24,7 @@ public class JobController {
         this.candidateService = candidateService;
     }
 
-    // ✅ หน้าตำแหน่งงานที่เปิด (Candidate Home)
+
     @GetMapping("/open")
     public String getOpenJobs(@RequestParam(required = false) String candidateId, Model model) {
         List<Job> jobs = jobService.getOpenJobsSorted();

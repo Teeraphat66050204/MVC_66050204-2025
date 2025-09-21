@@ -24,7 +24,7 @@ public class JobService {
         return jobRepository.findAll();
     }
 
-    // ✅ ใช้โดย JobController (เอาเฉพาะ OPEN)
+
     public List<Job> getOpenJobsSorted() {
         return jobRepository.findAll()
                 .stream()

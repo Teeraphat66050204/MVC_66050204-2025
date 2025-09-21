@@ -16,12 +16,12 @@ public class ApplicationService {
         this.applicationRepository = applicationRepository;
     }
 
-    // ✅ ใช้โดย ApplicationController
+  
     public Application save(Application application) {
         return applicationRepository.save(application);
     }
 
-    // ✅ ใช้โดย AdminController & CandidateController
+   
     public List<Application> getApplicationsByCandidateId(String candidateId) {
         return applicationRepository.findAll()
                 .stream()

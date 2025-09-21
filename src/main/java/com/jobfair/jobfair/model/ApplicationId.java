@@ -18,14 +18,14 @@ public class ApplicationId implements Serializable {
         this.candidateId = candidateId;
     }
 
-    // Getters and Setters
+  
     public String getJobId() { return jobId; }
     public void setJobId(String jobId) { this.jobId = jobId; }
 
     public String getCandidateId() { return candidateId; }
     public void setCandidateId(String candidateId) { this.candidateId = candidateId; }
 
-    // equals & hashCode (จำเป็นสำหรับ composite key)
+   
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

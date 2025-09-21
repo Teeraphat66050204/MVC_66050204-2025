@@ -1,16 +1,20 @@
 package com.jobfair.jobfair.controller;
 
+import java.time.LocalDate;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.jobfair.jobfair.model.Application;
 import com.jobfair.jobfair.model.Candidate;
 import com.jobfair.jobfair.model.Job;
 import com.jobfair.jobfair.service.ApplicationService;
 import com.jobfair.jobfair.service.CandidateService;
 import com.jobfair.jobfair.service.JobService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/jobs")
@@ -28,7 +32,7 @@ public class ApplicationController {
         this.jobService = jobService;
     }
 
-    // ✅ หน้าสมัครงาน
+ 
     @GetMapping("/apply")
     public String applyPage(@RequestParam String jobId, @RequestParam String candidateId, Model model) {
         Job job = jobService.getJobById(jobId);
@@ -38,7 +42,7 @@ public class ApplicationController {
         return "apply";
     }
 
-    // ✅ กดยืนยันสมัครงาน
+  
     @PostMapping("/confirm-apply")
     public String confirmApply(@RequestParam String jobId, @RequestParam String candidateId) {
         Candidate candidate = candidateService.getCandidateById(candidateId);

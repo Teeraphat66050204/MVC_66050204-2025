@@ -23,7 +23,7 @@ public class CandidateService {
         return candidateRepository.findAll();
     }
 
-    // ✅ ใช้โดย AdminController
+ 
     public List<Candidate> getAllCandidatesSortedByName() {
         return candidateRepository.findAll()
                 .stream()
